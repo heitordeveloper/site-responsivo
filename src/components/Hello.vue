@@ -1,22 +1,14 @@
 <template>
   <div class="hello">
     <h1>Star Wars API</h1>
-    <!--<select aria-label="Type of entity" v-model="selectedEntity">
-      <option v-for="entity in entities" :value="entity.value" :selected="entity.selected">
-        {{entity.text}}
-      </option>
-    </select>-->
+
 	<b>Pesquise o Nome e Gênero do Personagem:</b><br>
     <input aria-label="Enter search query" placeholder="Pesquise o Personagem" v-model="query"/>
 	
 	<br>
 	<br>
 	
-	 <!--<select aria-label="Type of entitys" v-model="selectedEntitys">
-      <option v-for="entitys in entities" :value="entitys.value" :selected="entitys.selected">
-        {{entitys.text}}
-      </option>
-    </select>-->
+
 	<b>Pesquise o Titulo do Filme:</b><br>
     <input aria-label="Enter searchfilms querys" placeholder="Pesquise o Filme" v-model="querys"/>
 	
@@ -38,7 +30,7 @@
             {{capitalise(characteristic.name)}}: {{characteristic.value}}
           </p>
 		  <br>
-          <!--<p><small>Ultima atualização {{selectedResult.edited}}</small></p>-->
+
         </template>
       </div>
     </div>
@@ -72,19 +64,14 @@ export default {
       const entitys = this.selectedEntitys
 
 
-	  //axios.get('https://swapi.dev/api/${entity}/?search=${query}').then(res => {11
+	 
 	  axios.get('https://swapi.dev/api/people/?search=').then(res => {11
         this.results = res.data
       }, 
 	  err => {
         throw err
       })
-	  /* axios.get('https://swapi.dev/api/films/?search=').then(res => {11
-        this.results = res.data
-      }, 
-	  err => {
-        throw err
-      })*/
+
     }, 500),
 	  searchfilms: _debounce(function () {
       this.results = []
@@ -93,13 +80,7 @@ export default {
       const entity = this.selectedEntity
 
 
-	  /*axios.get('https://swapi.dev/api/${entity}/?search=${query}').then(res => {11
-	  axios.get('https://swapi.dev/api/people/?search=').then(res => {11
-        this.results = res.data
-      }, 
-	  err => {
-        throw err
-      })*/
+
 	  axios.get('https://swapi.dev/api/films/?search=').then(res => {11
         this.results = res.data
       }, 
@@ -120,9 +101,6 @@ export default {
       const attrs = Object.keys(obj).filter(key => {
         const value = obj[key]
 
-        /*if (blacklist.indexOf(key) !== -1) return false
-        if (permittedTypes.indexOf(typeof value) === -1) return false
-        if (value.indexOf('http') !== -1) return false*/
 
         return true
       }).map(key => {
